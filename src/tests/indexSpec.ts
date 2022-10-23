@@ -1,10 +1,6 @@
 import app from '../server/index';
 import supertest from 'supertest';
-
-// Simple test
-// it('expext mult(5) to equal 25', () => {
-//   expect(mult5(5)).toEqual(25);
-// });
+import resizeImg from '../functions';
 
 // API Endpoint test
 const req = supertest(app);
@@ -12,26 +8,20 @@ const req = supertest(app);
 // === async/await Endpoint Test === //
 describe('1. Test endpoint response', () => {
   // Testing Suit
-  it('Gets the image endpoint', async () => {
+  it('Gets the image endpoint', async (): Promise<void> => {
     const res = await req.get('/api/image');
+    expect(res.status).toBe(200);
+  });
+
+  it('Gets /api/image?imgname=im123&width=-200&height=200', async (): Promise<void> => {
+    //Invalid args
+    const res = await req.get('/api/image?imgname=im123&width=-200&height=200');
     expect(res.status).toBe(200);
   });
 });
 
-// === async/await test === //
-// it('expect asyncFun() result to equal value', async () => {
-//   const result = await asyncFun();
-//   expect(result).toEqual(value);
-// });
-
-// === Promise test === //
-// it('expect asyncFun() result to equal value', () => {
-//    return asyncFun().then( result => {
-//       expect(result).toEqual(value);
-//    })
-// });
-
-// === Promise Resolution and Rejection test === //
-// it('expect asyncFun() result to resolve', async () => {
-//   await asyncFun().[toBeResolved/toBeRejected]();
-// });
+describe('2. Image transform function should resolve', () => {
+  it('Resolves succesfully with the right filename', async (): Promise<void> => {
+    await expectAsync(resizeImg('im1', 200, 200)).toBeResolved();
+  });
+});

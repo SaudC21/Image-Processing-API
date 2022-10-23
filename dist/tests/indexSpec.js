@@ -41,10 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = __importDefault(require("../server/index"));
 var supertest_1 = __importDefault(require("supertest"));
-// Simple test
-// it('expext mult(5) to equal 25', () => {
-//   expect(mult5(5)).toEqual(25);
-// });
+var functions_1 = __importDefault(require("../functions"));
 // API Endpoint test
 var req = (0, supertest_1.default)(index_1.default);
 // === async/await Endpoint Test === //
@@ -62,19 +59,28 @@ describe('1. Test endpoint response', function () {
             }
         });
     }); });
+    it('Gets /api/image?imgname=im123&width=-200&height=200', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var res;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, req.get('/api/image?imgname=im123&width=-200&height=200')];
+                case 1:
+                    res = _a.sent();
+                    expect(res.status).toBe(200);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
 });
-// === async/await test === //
-// it('expect asyncFun() result to equal value', async () => {
-//   const result = await asyncFun();
-//   expect(result).toEqual(value);
-// });
-// === Promise test === //
-// it('expect asyncFun() result to equal value', () => {
-//    return asyncFun().then( result => {
-//       expect(result).toEqual(value);
-//    })
-// });
-// === Promise Resolution and Rejection test === //
-// it('expect asyncFun() result to resolve', async () => {
-//   await asyncFun().[toBeResolved/toBeRejected]();
-// });
+describe('2. Image transform function should resolve', function () {
+    it('Resolves succesfully with the right filename', function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, expectAsync((0, functions_1.default)('im1', 200, 200)).toBeResolved()];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});

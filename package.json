@@ -7,7 +7,7 @@
     "start": "nodemon dist/server/index.js",
     "build": "npx tsc",
     "format": "prettier ./src/**/*.ts --write",
-    "lint": "eslint ./src/**/*.ts",
+    "eslint": "eslint ./src/**/*.ts",
     "test": "npx tsc && jasmine"
   },
   "keywords": [],

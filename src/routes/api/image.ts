@@ -10,7 +10,9 @@ image.get('/', async (req, res) => {
   const widthInt = parseInt(width);
   if (checkParameters(imgName, heightInt, widthInt) == true) {
     const resizeImage = await resizeImg(imgName, heightInt, widthInt);
-    if (resizeImage == 'This image is not available, Please enter correct image name'
+    if (
+      resizeImage ==
+      'This image is not available, Please enter correct image name'
     ) {
       res.send(resizeImage);
     } else {
