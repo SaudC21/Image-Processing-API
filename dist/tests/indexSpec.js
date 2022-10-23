@@ -39,23 +39,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var client_1 = __importDefault(require("../client"));
 var index_1 = __importDefault(require("../server/index"));
 var supertest_1 = __importDefault(require("supertest"));
 // Simple test
-it('expext mult(5) to equal 25', function () {
-    expect((0, client_1.default)(5)).toEqual(25);
-});
+// it('expext mult(5) to equal 25', () => {
+//   expect(mult5(5)).toEqual(25);
+// });
 // API Endpoint test
 var req = (0, supertest_1.default)(index_1.default);
 // === async/await Endpoint Test === //
-describe('Test endpoint responses', function () {
+describe('1. Test endpoint response', function () {
     // Testing Suit
-    it('gets the api endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+    it('Gets the image endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var res;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, req.get('/api')];
+                case 0: return [4 /*yield*/, req.get('/api/image')];
                 case 1:
                     res = _a.sent();
                     expect(res.status).toBe(200);

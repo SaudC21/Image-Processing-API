@@ -1,4 +1,3 @@
-//import mult5 from '../client';
 import app from '../server/index';
 import supertest from 'supertest';
 
@@ -14,7 +13,7 @@ const req = supertest(app);
 describe('1. Test endpoint response', () => {
   // Testing Suit
   it('Gets the image endpoint', async () => {
-    const res = await req.get('/image');
+    const res = await req.get('/api/image');
     expect(res.status).toBe(200);
   });
 });
