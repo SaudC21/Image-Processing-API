@@ -2,7 +2,7 @@ import express from 'express';
 import resizeImg from '../../functions';
 const image = express.Router();
 
-image.get('/', async (req, res) => {
+image.get('/', async (req: express.Request, res: express.Response): Promise<void> => {
   const imgName = req.query.imgname as string;
   const height = req.query.height as string;
   const width = req.query.width as string;

@@ -39,3 +39,17 @@ To execute the application use the following command in terminal:
 ```npm run start```
 
 the app will then be available on port 4000 by default.
+
+## How to use
+
+The API offers one endpoint to access and resize as requested in the URL, images are available in the `/Images` folder.
+
+The endpoint is `/api/image` which running on the localhost with port 4000, and requires three query parameters:
+
+1- imgname: The image name you'd like to resize (Without the extension) from the images available in the Images folder.
+2- height: A positive integer
+3- width: A positive integer
+
+Example of a correct endpoint call:
+
+[http://localhost:4000/api/image?imgname=im6&height=1000&width=1500](http://localhost:4000/api/image?imgname=im6&height=1000&width=1500)
