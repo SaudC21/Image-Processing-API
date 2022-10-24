@@ -9,13 +9,6 @@ After cloning the repo, all the project dependencies can be installed using npm:
 
 ```npm install```
 
-## Running the server
-To execute the application use the following command in terminal:
-
-```npm run start```
-
-the app will then be available on port 4000 by default.
-
 ## Scripts
 The following actions can be executed through npm scripts:
 
@@ -39,3 +32,10 @@ The code can be automatically formatted using prettier. The formatting options c
 The code can ba automatically linted using ESlint. Note that ESlint will also use prettier to test for incorrect formatting. Rules, plugins and extensions for ESlint can be modified through the .eslintrc file.
 
 ```npm run lint```
+
+## Running the server
+To execute the application use the following command in terminal:
+
+```npm run start```
+
+the app will then be available on port 4000 by default.
