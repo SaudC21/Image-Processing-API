@@ -47,7 +47,9 @@ The API offers one endpoint to access and resize as requested in the URL, images
 The endpoint is `/api/image` which running on the localhost with port 4000, and requires three query parameters:
 
 1- imgname: The image name you'd like to resize (Without the extension) from the images available in the Images folder.
+
 2- height: A positive integer
+
 3- width: A positive integer
 
 Example of a correct endpoint call:
