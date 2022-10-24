@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon dist/server/index.js",
     "build": "npx tsc",
-    "format": "prettier ./src/**/*.ts --write",
+    "format": "prettier --config .prettierrc ./src/**/*.ts --write",
     "eslint": "eslint ./src/**/*.ts",
     "test": "npx tsc && jasmine"
   },
